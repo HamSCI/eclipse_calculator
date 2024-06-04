@@ -2,3 +2,4 @@ pandas
 astropy
 matplotlib
 numpy
+geographiclib
