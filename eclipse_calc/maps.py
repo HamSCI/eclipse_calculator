@@ -32,8 +32,8 @@ from cartopy.feature.nightshade import Nightshade
 from . import locator
 
 def cc255(color):
-    cc = matplotlib.colors.ColorConverter().to_rgb
-    trip = np.array(cc(color))*255
+    from matplotlib.colors import to_rgb
+    trip = np.array(to_rgb(color))*255
     trip = [int(x) for x in trip]
     return tuple(trip)
 
@@ -329,8 +329,8 @@ class HamMap(object):
         lats_ur, lons_ur    = ll(gridsquares,'upper right')
         lats_ul, lons_ul    = ll(gridsquares,'upper left')
 
-        coords  = zip(lats_ll,lons_ll,lats_lr,lons_lr,
-                      lats_ur,lons_ur,lats_ul,lons_ul)
+        coords  = list(zip(lats_ll,lons_ll,lats_lr,lons_lr,
+                           lats_ur,lons_ur,lats_ul,lons_ul))
 
         verts   = []
         for lat_ll,lon_ll,lat_lr,lon_lr,lat_ur,lon_ur,lat_ul,lon_ul in coords:

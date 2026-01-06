@@ -165,7 +165,7 @@ def calcSunRtAscension( t ):
     SunLong = calcSunApparentLong(t)
     tananum = ( numpy.cos(numpy.radians(e)) * numpy.sin(numpy.radians(SunLong)) )
     tanadenom = numpy.cos(numpy.radians(SunLong))
-    alpha = numpy.degrees(anumpy.arctan2(tananum, tanadenom))
+    alpha = numpy.degrees(numpy.arctan2(tananum, tanadenom))
     return alpha # in degrees
 
 
